@@ -25,11 +25,13 @@ jobs:
     timeout-minutes: 30
     defaults:
       run:
+        # "shell: bash" attiva pipefail: se il bot fallisce, fallisce anche l'esecuzione
+        shell: bash
         working-directory: paper-trading-bot
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
