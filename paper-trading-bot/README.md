@@ -61,7 +61,22 @@ python -m papertrader init --force   # ricomincia da zero (cancella i dati)
 
 Ad ogni `run`, Claude riceve il portafoglio, gli eventi automatici e le sue ultime 5 decisioni (per evitare che cambi idea ogni giorno). Poi usa gli strumenti a disposizione (quotazioni, storico con indicatori tecnici, fondamentali, notizie, invio ordini) e chiude con un breve resoconto in italiano.
 
-### Esecuzione automatica una volta al giorno
+### Esecuzione automatica con GitHub Actions (consigliata)
+
+Il file `.github/workflows/paper-trading.yml` esegue il bot sui server di GitHub ogni giorno feriale alle 16:37 UTC, cioè alle 17:37 in Italia d'inverno e alle 18:37 d'estate, sempre con la borsa USA aperta. Il computer non deve restare acceso.
+
+1. Su GitHub, nel repository, vai in **Settings → Secrets and variables → Actions → New repository secret**. Come nome scrivi `ANTHROPIC_API_KEY` e come valore incolla la chiave.
+2. Il workflow parte solo dal branch principale (`main`).
+3. Per lanciarlo a mano: scheda **Actions → Paper trading → Run workflow**.
+
+Dopo ogni esecuzione:
+- i risultati vengono salvati nella cartella `data/` con un commit automatico;
+- il report aggiornato è in `data/report.txt`;
+- il resoconto di Claude compare nella pagina dell'esecuzione, nella scheda Actions.
+
+Per cambiare strategia, titoli o limiti, modifica `config.toml`, anche direttamente dal sito di GitHub.
+
+### Esecuzione automatica sul tuo computer
 
 Il bot va eseguito **a mercato aperto**. Per la borsa USA, le 17:30 ora italiana dei giorni feriali sono sempre in orario, anche nelle settimane in cui Europa e USA cambiano l'ora legale in date diverse.
 

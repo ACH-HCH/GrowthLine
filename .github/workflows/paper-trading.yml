@@ -1,0 +1,80 @@
+name: Paper trading
+
+on:
+  schedule:
+    # 16:37 UTC dal lunedì al venerdì = 17:37 in Italia d'inverno, 18:37 d'estate.
+    # La borsa USA è aperta in entrambi i casi (apre alle 13:30/14:30 UTC, chiude alle 20:00/21:00 UTC).
+    - cron: "37 16 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      no_agent:
+        description: "Aggiorna solo prezzi e ordini, senza chiamare Claude (gratis)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trading
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: paper-trading-bot
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: paper-trading-bot/requirements.txt
+
+      - name: Installa le dipendenze
+        run: pip install -r requirements.txt
+
+      - name: Controlla la chiave API
+        if: ${{ !inputs.no_agent }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Manca il secret ANTHROPIC_API_KEY (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+
+      - name: Crea il conto simulato (solo la prima volta)
+        run: |
+          if [ ! -f data/state.json ]; then python -m papertrader init; fi
+
+      - name: Esegui un ciclo di trading
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ inputs.no_agent }}" = "true" ]; then
+            python -m papertrader run --no-agent | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            python -m papertrader run | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Aggiorna il report
+        run: |
+          python -m papertrader report > data/report.txt
+          { echo '```'; cat data/report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Salva i risultati nel repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica da salvare."
+          else
+            git commit -m "Paper trading: risultati del $(date -u +%Y-%m-%d)"
+            git push
+          fi
