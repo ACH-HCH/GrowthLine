@@ -1,0 +1,55 @@
+# Copia questo file in config.toml e modificalo a piacere.
+
+[account]
+initial_capital = 10000.0     # capitale virtuale iniziale
+currency = "USD"              # valuta dei titoli dell'universo (tutti nella stessa valuta)
+data_dir = "data"             # dove vengono salvati stato e registri
+
+[market]
+# Borsa USA. Per Piazza Affari: timezone = "Europe/Rome", open = "09:00", close = "17:30",
+# benchmark = "FTSEMIB.MI", currency = "EUR" e titoli con suffisso .MI (es. "ENI.MI", "ISP.MI").
+timezone = "America/New_York"
+open = "09:30"
+close = "16:00"
+benchmark = "SPY"
+max_quote_age_minutes = 30
+universe = [
+  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "JPM", "V", "JNJ", "PG",
+  "KO", "XOM", "UNH", "HD", "COST", "SPY", "QQQ", "IWM", "TLT", "GLD",
+]
+
+[costs]
+# Modello di costo simile a un broker online economico (tariffa fissa per azione).
+commission_per_share = 0.005
+commission_min = 1.0
+commission_max_pct = 1.0      # tetto della commissione, in % del controvalore
+slippage_bps = 5              # peggioramento del prezzo a ogni esecuzione (5 = 0,05%)
+allow_fractional = false
+capital_gains_tax_pct = 26.0  # aliquota italiana sulle plusvalenze, usata per la stima nel report
+
+[risk]
+# Limiti imposti dal codice: Claude non può superarli.
+max_position_pct = 20.0       # peso massimo di un singolo titolo
+max_order_pct = 10.0          # controvalore massimo di un singolo ordine
+min_cash_pct = 5.0            # liquidità minima da tenere sempre
+max_orders_per_run = 5
+stop_loss_pct = 15.0          # vendita automatica se un titolo perde il 15% dal prezzo di carico (0 = off)
+max_drawdown_halt_pct = 20.0  # sospende tutto se il conto perde il 20% dal massimo (0 = off)
+
+[agent]
+model = "claude-opus-5-5"
+effort = "medium"             # low | medium | high | xhigh | max: più alto = più ragionamento e più costo
+max_turns = 25                # massimo di passaggi strumento per esecuzione
+use_fallbacks = true          # se il modello rifiuta una richiesta, l'API riprova con un modello alternativo
+input_price_per_mtok = 4.0    # USD per milione di token, per stimare i costi
+output_price_per_mtok = 20.0
+max_api_cost_per_run_usd = 1.0
+journal_entries_in_prompt = 5 # quante decisioni passate ricordare a Claude
+run_when_market_closed = false
+strategy = """
+Investitore di lungo periodo orientato alla qualità. Preferisci aziende con utili solidi e in crescita,
+debito contenuto e trend di prezzo positivo (prezzo sopra la media mobile a 200 giorni).
+Costruisci il portafoglio gradualmente, tieni 8-12 posizioni diversificate per settore,
+e vendi solo se la tesi d'investimento cambia o il titolo diventa nettamente sopravvalutato.
+Orizzonte: mesi, non giorni.
+"""
