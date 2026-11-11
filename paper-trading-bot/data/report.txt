@@ -1,33 +1,31 @@
 ================================================================
   REPORT SIMULAZIONE PAPER TRADING
 ================================================================
-Periodo: dal 2026-11-11 al 2026-11-11T09:12+00:00 (0 giorni, 0 giorni di borsa osservati)
+Periodo: dal 2026-11-11 al 2026-11-11T17:11+00:00 (0 giorni, 1 giorni di borsa osservati)
 Capitale iniziale: 10,000.00 USD
 
                                              BOT   BENCHMARK SPY
-Valore attuale                         10,000.00       10,000.00
-Rendimento lordo                           0.00%           0.00%
-Rendimento dopo costi API                  0.00%           0.00%
-Netto stimato se liquidassi oggi           0.00%           0.00%
+Valore attuale                          9,993.14        9,994.06
+Rendimento lordo                          -0.07%          -0.06%
+Rendimento dopo costi API                 -0.07%          -0.06%
+Netto stimato se liquidassi oggi          -0.07%          -0.06%
 Max drawdown                               0.00%           0.00%
 Volatilità annualizzata                      n/d             n/d
 Sharpe (rf = 0)                              n/d             n/d
 
 Costi del bot
-  Commissioni pagate:       0.00 USD
-  Slippage stimato:         0.00 USD
-  Costo API Claude:         0.00 USD in 0 esecuzioni
+  Commissioni pagate:       5.00 USD
+  Slippage stimato:         1.86 USD
+  Costo API Claude:         0.15 USD in 1 esecuzioni
 
 Operatività
-  Operazioni totali:        0  (vendite chiuse: 0, in guadagno: n/d)
+  Operazioni totali:        5  (vendite chiuse: 0, in guadagno: n/d)
   P&L realizzato:           0.00 USD
-  Turnover:                 0% del capitale iniziale
-
-Nota: il benchmark non è ancora stato acquistato (serve un'esecuzione a mercato aperto).
+  Turnover:                 37% del capitale iniziale
 
 ----------------------------------------------------------------
 Valutazione
-  Troppo presto per giudicare: 0 giorni di borsa su un minimo consigliato di 60 (meglio 6-12 mesi). Qualunque differenza ora è soprattutto fortuna.
-  Differenza netta bot vs benchmark: +0.00 punti percentuali (a favore del benchmark).
+  Troppo presto per giudicare: 1 giorni di borsa su un minimo consigliato di 60 (meglio 6-12 mesi). Qualunque differenza ora è soprattutto fortuna.
+  Differenza netta bot vs benchmark: -0.01 punti percentuali (a favore del benchmark).
   Stima fiscale semplificata (aliquota unica sul guadagno complessivo): chiedi conferma a un commercialista.
 ================================================================

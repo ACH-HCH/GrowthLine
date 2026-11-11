@@ -3,21 +3,47 @@
   "created_at": "2026-11-11T09:12:25.894571+00:00",
   "currency": "USD",
   "initial_capital": 10000.0,
-  "cash": 10000.0,
-  "positions": {},
+  "cash": 6272.899843971252,
+  "positions": {
+    "MSFT": {
+      "qty": 1.0,
+      "avg_cost": 522.2605,
+      "opened_at": "2026-11-11T17:11:18.153480+00:00"
+    },
+    "V": {
+      "qty": 2.0,
+      "avg_cost": 423.4713897705078,
+      "opened_at": "2026-11-11T17:11:18.153480+00:00"
+    },
+    "JNJ": {
+      "qty": 3.0,
+      "avg_cost": 277.67194554646807,
+      "opened_at": "2026-11-11T17:11:18.153480+00:00"
+    },
+    "PG": {
+      "qty": 5.0,
+      "avg_cost": 167.2334719467163,
+      "opened_at": "2026-11-11T17:11:18.153480+00:00"
+    },
+    "JPM": {
+      "qty": 2.0,
+      "avg_cost": 344.356840057373,
+      "opened_at": "2026-11-11T17:11:18.153480+00:00"
+    }
+  },
   "pending_orders": [],
   "realized_pnl": 0.0,
-  "total_commissions": 0.0,
-  "total_slippage": 0.0,
-  "api_cost_usd": 0.0,
-  "agent_runs": 0,
+  "total_commissions": 5.0,
+  "total_slippage": 1.8601200180052047,
+  "api_cost_usd": 0.1524,
+  "agent_runs": 1,
   "peak_equity": 10000.0,
   "halted": false,
   "halt_reason": null,
   "benchmark": {
     "ticker": "SPY",
-    "qty": 0.0,
-    "cash": 10000.0,
-    "funded_at": null
+    "qty": 13.0,
+    "cash": 113.7345199584961,
+    "funded_at": "2026-11-11T17:11:18.153480+00:00"
   }
 }
