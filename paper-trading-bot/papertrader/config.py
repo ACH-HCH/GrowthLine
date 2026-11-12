@@ -56,6 +56,7 @@ class AgentConfig:
     max_api_cost_per_run_usd: float = 1.0
     journal_entries_in_prompt: int = 5
     run_when_market_closed: bool = False
+    max_agent_runs_per_day: int = 1
     strategy: str = ""
 
 
