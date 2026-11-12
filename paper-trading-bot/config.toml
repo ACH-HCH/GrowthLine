@@ -46,6 +46,7 @@ output_price_per_mtok = 20.0
 max_api_cost_per_run_usd = 1.0
 journal_entries_in_prompt = 5 # quante decisioni passate ricordare a Claude
 run_when_market_closed = false
+max_agent_runs_per_day = 1   # il workflow fa più tentativi al giorno: Claude decide solo nel primo a borsa aperta
 strategy = """
 Investitore di lungo periodo orientato alla qualità. Preferisci aziende con utili solidi e in crescita,
 debito contenuto e trend di prezzo positivo (prezzo sopra la media mobile a 200 giorni).

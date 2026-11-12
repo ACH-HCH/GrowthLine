@@ -6,11 +6,22 @@ import argparse
 import json
 import sys
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 from .config import Config, load_config
 from .engine import Engine, new_state
 from .market import BaseMarket, YahooMarket
 from .store import Store
+
+
+def _agent_runs_today(cfg: Config, store: Store, now: datetime) -> int:
+    """Esecuzioni di Claude nella giornata di borsa corrente (fuso orario del mercato)."""
+    tz = ZoneInfo(cfg.market.timezone)
+    today = now.astimezone(tz).date()
+    return sum(
+        1 for j in store.read_jsonl(store.journal_path)
+        if datetime.fromisoformat(j["ts"]).astimezone(tz).date() == today
+    )
 
 
 def run_cycle(cfg: Config, market: BaseMarket, store: Store, *, use_agent: bool = True,
@@ -31,6 +42,8 @@ def run_cycle(cfg: Config, market: BaseMarket, store: Store, *, use_agent: bool 
         skip_reason = "trading sospeso"
     elif not engine.market_open and not cfg.agent.run_when_market_closed:
         skip_reason = "mercato chiuso (run_when_market_closed = false)"
+    elif _agent_runs_today(cfg, store, engine.now) >= cfg.agent.max_agent_runs_per_day:
+        skip_reason = f"Claude ha già deciso oggi (max_agent_runs_per_day = {cfg.agent.max_agent_runs_per_day})"
 
     if skip_reason is None:
         journal = store.read_jsonl(store.journal_path)[-cfg.agent.journal_entries_in_prompt:]

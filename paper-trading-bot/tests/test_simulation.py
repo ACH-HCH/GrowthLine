@@ -223,3 +223,22 @@ def test_agent_loop_with_mock_client(setup):
     second = calls[1]["messages"]
     assert [r["tool_use_id"] for r in second[2]["content"]] == ["t1", "t2"]
     assert calls[0]["fallbacks"] == "default" and calls[0]["tools"] is TOOLS
+
+
+def test_agent_runs_once_per_day(setup):
+    cfg, store, prices = setup
+    m = FakeMarket(cfg.market, prices, OPEN_NOW)
+    calls = []
+
+    def fake_agent(engine, cfg, journal):
+        calls.append(engine.now)
+        return {"summary": "ok", "stop": "end_turn", "api_cost_usd": 0.1, "tokens": {}, "models": ["fake"]}
+
+    run_cycle(cfg, m, store, now=OPEN_NOW, agent_fn=fake_agent)
+    m.now = OPEN_NOW + timedelta(hours=2)
+    second = run_cycle(cfg, m, store, now=m.now, agent_fn=fake_agent)
+    assert len(calls) == 1 and "già deciso oggi" in second["skipped"]
+    next_day = OPEN_NOW + timedelta(days=1)
+    m.now = next_day
+    run_cycle(cfg, m, store, now=next_day, agent_fn=fake_agent)
+    assert len(calls) == 2
