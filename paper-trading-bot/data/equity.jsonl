@@ -12,3 +12,4 @@
 {"ts": "2026-11-17T00:24:47.362251+00:00", "equity": 10013.66, "cash": 4074.94, "benchmark_value": 9734.38, "api_cost_usd": 0.3545, "market_open": false}
 {"ts": "2026-11-17T01:55:02.027957+00:00", "equity": 10013.66, "cash": 4074.94, "benchmark_value": 9734.38, "api_cost_usd": 0.3545, "market_open": false}
 {"ts": "2026-11-17T02:36:15.960605+00:00", "equity": 10013.73, "cash": 4074.94, "benchmark_value": 9734.38, "api_cost_usd": 0.3545, "market_open": false}
+{"ts": "2026-11-17T17:14:57.959453+00:00", "equity": 9916.04, "cash": 4074.94, "benchmark_value": 9626.54, "api_cost_usd": 0.4463, "market_open": true}
