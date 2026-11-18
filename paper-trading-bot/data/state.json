@@ -41,7 +41,17 @@
       "opened_at": "2026-11-16T17:14:41.643000+00:00"
     }
   },
-  "pending_orders": [],
+  "pending_orders": [
+    {
+      "id": "5b44e284",
+      "ticker": "UNH",
+      "side": "sell",
+      "qty": 2.0,
+      "reason": "Stop-loss automatico al -15.0%",
+      "source": "stop-loss",
+      "created_at": "2026-11-18T22:22:49.658549+00:00"
+    }
+  ],
   "realized_pnl": 0.0,
   "total_commissions": 8.0,
   "total_slippage": 2.957050041198414,
