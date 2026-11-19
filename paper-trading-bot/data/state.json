@@ -3,7 +3,7 @@
   "created_at": "2026-11-11T09:12:25.894571+00:00",
   "currency": "USD",
   "initial_capital": 10000.0,
-  "cash": 4074.942867561341,
+  "cash": 3961.5123368606573,
   "positions": {
     "MSFT": {
       "qty": 2.0,
@@ -35,28 +35,18 @@
       "avg_cost": 169.91481988525388,
       "opened_at": "2026-11-13T18:19:19.466316+00:00"
     },
-    "UNH": {
-      "qty": 2.0,
-      "avg_cost": 411.67548622131346,
-      "opened_at": "2026-11-16T17:14:41.643000+00:00"
+    "KO": {
+      "qty": 8.0,
+      "avg_cost": 95.9128678627014,
+      "opened_at": "2026-11-19T17:14:02.771117+00:00"
     }
   },
-  "pending_orders": [
-    {
-      "id": "5b44e284",
-      "ticker": "UNH",
-      "side": "sell",
-      "qty": 2.0,
-      "reason": "Stop-loss automatico al -15.0%",
-      "source": "stop-loss",
-      "created_at": "2026-11-18T22:22:49.658549+00:00"
-    }
-  ],
-  "realized_pnl": 0.0,
-  "total_commissions": 8.0,
-  "total_slippage": 2.957050041198414,
-  "api_cost_usd": 0.527,
-  "agent_runs": 5,
+  "pending_orders": [],
+  "realized_pnl": -169.47856024169914,
+  "total_commissions": 10.0,
+  "total_slippage": 3.6676100387568624,
+  "api_cost_usd": 0.6243000000000001,
+  "agent_runs": 6,
   "peak_equity": 10052.540725624083,
   "halted": false,
   "halt_reason": null,
