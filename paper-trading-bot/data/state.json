@@ -3,7 +3,7 @@
   "created_at": "2026-11-11T09:12:25.894571+00:00",
   "currency": "USD",
   "initial_capital": 10000.0,
-  "cash": 3961.5123368606573,
+  "cash": 4590.637119300843,
   "positions": {
     "MSFT": {
       "qty": 2.0,
@@ -25,11 +25,6 @@
       "avg_cost": 167.2334719467163,
       "opened_at": "2026-11-11T17:11:18.153480+00:00"
     },
-    "JPM": {
-      "qty": 2.0,
-      "avg_cost": 344.356840057373,
-      "opened_at": "2026-11-11T17:11:18.153480+00:00"
-    },
     "XOM": {
       "qty": 5.0,
       "avg_cost": 169.91481988525388,
@@ -42,11 +37,11 @@
     }
   },
   "pending_orders": [],
-  "realized_pnl": -169.47856024169914,
-  "total_commissions": 10.0,
-  "total_slippage": 3.6676100387568624,
-  "api_cost_usd": 0.6243000000000001,
-  "agent_runs": 6,
+  "realized_pnl": -229.06745791625963,
+  "total_commissions": 11.0,
+  "total_slippage": 3.9828300399775856,
+  "api_cost_usd": 0.7444000000000001,
+  "agent_runs": 7,
   "peak_equity": 10052.540725624083,
   "halted": false,
   "halt_reason": null,
