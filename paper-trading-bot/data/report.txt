@@ -1,14 +1,14 @@
 ================================================================
   REPORT SIMULAZIONE PAPER TRADING
 ================================================================
-Periodo: dal 2026-11-11 al 2026-11-20T21:59+00:00 (9 giorni, 7 giorni di borsa osservati)
+Periodo: dal 2026-11-11 al 2026-11-20T22:47+00:00 (9 giorni, 7 giorni di borsa osservati)
 Capitale iniziale: 10,000.00 USD
 
                                              BOT   BENCHMARK SPY
-Valore attuale                          9,600.33        9,095.56
+Valore attuale                          9,600.11        9,095.56
 Rendimento lordo                          -4.00%          -9.04%
-Rendimento dopo costi API                 -4.00%          -9.04%
-Netto stimato se liquidassi oggi          -4.00%          -9.04%
+Rendimento dopo costi API                 -4.01%          -9.04%
+Netto stimato se liquidassi oggi          -4.01%          -9.04%
 Max drawdown                              -4.50%          -8.96%
 Volatilità annualizzata                      n/d             n/d
 Sharpe (rf = 0)                              n/d             n/d
