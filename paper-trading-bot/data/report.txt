@@ -1,14 +1,14 @@
 ================================================================
   REPORT SIMULAZIONE PAPER TRADING
 ================================================================
-Periodo: dal 2026-11-11 al 2026-11-24T04:26+00:00 (12 giorni, 8 giorni di borsa osservati)
+Periodo: dal 2026-11-11 al 2026-11-24T17:14+00:00 (13 giorni, 9 giorni di borsa osservati)
 Capitale iniziale: 10,000.00 USD
 
                                              BOT   BENCHMARK SPY
-Valore attuale                          9,608.02        9,504.80
-Rendimento lordo                          -3.92%          -4.95%
-Rendimento dopo costi API                 -3.93%          -4.95%
-Netto stimato se liquidassi oggi          -3.93%          -4.95%
+Valore attuale                          9,690.37        9,450.40
+Rendimento lordo                          -3.10%          -5.50%
+Rendimento dopo costi API                 -3.11%          -5.50%
+Netto stimato se liquidassi oggi          -3.11%          -5.50%
 Max drawdown                              -4.50%          -8.96%
 Volatilità annualizzata                      n/d             n/d
 Sharpe (rf = 0)                              n/d             n/d
@@ -16,7 +16,7 @@ Sharpe (rf = 0)                              n/d             n/d
 Costi del bot
   Commissioni pagate:       11.00 USD
   Slippage stimato:         3.98 USD
-  Costo API Claude:         0.83 USD in 8 esecuzioni
+  Costo API Claude:         0.90 USD in 9 esecuzioni
 
 Operatività
   Operazioni totali:        11  (vendite chiuse: 2, in guadagno: 0%)
@@ -25,7 +25,7 @@ Operatività
 
 ----------------------------------------------------------------
 Valutazione
-  Troppo presto per giudicare: 8 giorni di borsa su un minimo consigliato di 60 (meglio 6-12 mesi). Qualunque differenza ora è soprattutto fortuna.
-  Differenza netta bot vs benchmark: +1.02 punti percentuali (a favore del bot).
+  Troppo presto per giudicare: 9 giorni di borsa su un minimo consigliato di 60 (meglio 6-12 mesi). Qualunque differenza ora è soprattutto fortuna.
+  Differenza netta bot vs benchmark: +2.39 punti percentuali (a favore del bot).
   Stima fiscale semplificata (aliquota unica sul guadagno complessivo): chiedi conferma a un commercialista.
 ================================================================
